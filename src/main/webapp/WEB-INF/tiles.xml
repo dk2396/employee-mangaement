@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+
+
+<tiles-definitions>
+
+    <definition name="baseLayout" template="/WEB-INF/views/baseLayout.jsp">
+        <put-attribute name="title" value="Spring MVC Application" />
+        <put-attribute name="head" value="/WEB-INF/views/header.jsp" />
+
+        <put-attribute name="body" value="" />
+    </definition>
+
+    <definition name="addEmployee" extends="baseLayout">
+        <put-attribute name="title" value="Add Employee" />
+        <put-attribute name="body" value="/WEB-INF/views/add-employee.jsp" />
+    </definition>
+
+    <definition name="employeeList" extends="baseLayout">
+        <put-attribute name="title" value="Employee List" />
+        <put-attribute name="body" value="/WEB-INF/views/employee-list.jsp" />
+    </definition>
+
+    <definition name="employeeDetails" extends="baseLayout">
+        <put-attribute name="title" value="Employee Details" />
+        <put-attribute name="body" value="/WEB-INF/views/employee-details.jsp" />
+    </definition>
+
+    <definition name="editEmployee" extends="baseLayout">
+        <put-attribute name="title" value="Edit Employee" />
+        <put-attribute name="body" value="/WEB-INF/views/edit-employee.jsp" />
+    </definition>
+
+    <definition name="error" extends="baseLayout">
+        <put-attribute name="title" value="Error" />
+        <put-attribute name="body" value="/WEB-INF/views/error.jsp" />
+    </definition>
+
+</tiles-definitions>
