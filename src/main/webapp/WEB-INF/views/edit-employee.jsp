@@ -7,6 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Edit Employee</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="<c:url value='/css/styles.css' />">
 </head>
 <body>
@@ -27,7 +30,7 @@
                     </tr>
                     <tr>
                         <td><form:label path="dob">Date of Birth:</form:label></td>
-                        <td><form:input path="dob" /></td>
+                        <td><form:input path="dob" readonly="readonly" class="datepicker"  placeholder="YYYY-MM-DD"/></td>
                         <td><form:errors path="dob" cssClass="error" /></td>
                     </tr>
                     <tr>
@@ -69,4 +72,14 @@
         </div>
     </div>
 </body>
+<script>
+    $(document).ready(function() {
+        $('.datepicker').datepicker({
+            dateFormat: 'yy-mm-dd',
+            changeYear: true,
+            changeMonth: true,
+            yearRange: "-100:+0"
+        });
+    });
+</script>
 </html>
