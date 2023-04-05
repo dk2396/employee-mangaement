@@ -1,10 +1,17 @@
 package com.example.employee.management.model;
 
+import com.example.employee.management.validator.EmployeeDobValidator;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.Constraint;
+import javax.validation.Payload;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -27,6 +34,7 @@ public class Employee {
     @NotNull(message = "Date of birth is required")
     @Column(name = "dob", nullable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @EmployeeDob()
     private LocalDate dob;
 
     @NotNull(message = "Department is required")
@@ -104,6 +112,15 @@ public class Employee {
         IT,
         SALES,
         FINANCE
+    }
+    @Target({ElementType.FIELD})
+    @Retention(RetentionPolicy.RUNTIME)
+    @Constraint(validatedBy = EmployeeDobValidator.class)
+    public @interface EmployeeDob {
+
+        String message() default "Employee must be 18 years of Age";
+        Class<?>[] groups() default{};
+        Class<? extends Payload>[] payload() default {};
     }
 }
 

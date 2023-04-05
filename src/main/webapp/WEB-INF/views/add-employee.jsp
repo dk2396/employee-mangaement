@@ -14,7 +14,7 @@
 </head>
 <body>
 	<h1>Add Employee</h1>
-	<form:form action="/employees/add" method="post" modelAttribute="employee">
+	<form:form action="/employees/add" method="post" modelAttribute="employee" onsubmit="return validateDob()">
 		<table>
 			<tr>
 				<td><form:label path="firstName">First Name<span style="color: red;">*</span>:</form:label></td>
@@ -28,7 +28,7 @@
 			</tr>
 			<tr>
 				<td><form:label path="dob">Date of Birth<span style="color: red;">*</span>:</form:label></td>
-                <td><form:input path="dob" readonly="readonly" class="datepicker"  placeholder="YYYY-MM-DD" required="required"/></td>
+                <td><form:input path="dob" id="dob" readonly="readonly" class="datepicker"  placeholder="YYYY-MM-DD" required="required"/></td>
 				<td><form:errors path="dob" cssClass="error" /></td>
 			</tr>
 			<tr>
@@ -70,5 +70,16 @@
             yearRange: "-100:+0"
         });
     });
+
+    function validateDob(){
+        var dob=new Date(document.getElementById("dob").value);
+        var today=new Date();
+        var age=today.getFullYear()-dob.getFullYear();
+        if(age<18){
+            alert("you must be 18 years");
+            return false;
+        }
+        return true;
+    }
 </script>
 </html>
