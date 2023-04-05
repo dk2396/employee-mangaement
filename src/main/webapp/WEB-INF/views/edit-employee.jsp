@@ -30,7 +30,7 @@
                     </tr>
                     <tr>
                         <td><form:label path="dob">Date of Birth:</form:label></td>
-                        <td><form:input path="dob" readonly="readonly" class="datepicker"  placeholder="YYYY-MM-DD"/></td>
+                         <td><input type="date" id="dob" name="dob" value="${employee.dob}" required="required"/></td>
                         <td><form:errors path="dob" cssClass="error" /></td>
                     </tr>
                     <tr>

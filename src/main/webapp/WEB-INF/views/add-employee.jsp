@@ -28,7 +28,7 @@
 			</tr>
 			<tr>
 				<td><form:label path="dob">Date of Birth<span style="color: red;">*</span>:</form:label></td>
-                <td><form:input path="dob" id="dob" readonly="readonly" class="datepicker"  placeholder="YYYY-MM-DD" required="required"/></td>
+                <td><input type="date" id="dob" name="dob" required="required"/></td>
 				<td><form:errors path="dob" cssClass="error" /></td>
 			</tr>
 			<tr>
